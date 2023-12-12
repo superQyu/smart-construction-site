@@ -1,0 +1,33 @@
+[package]
+name = "rip_platform"
+version = "0.0.0"
+description = "A Tauri App"
+authors = ["Giuliao,GolemHerry"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.5.0", features = [] }
+
+[dependencies]
+tauri = { version = "1.5.2", features = [
+    "http-all",
+    "fs-all",
+    "path-all",
+    "protocol-asset",
+    "window-all",
+    "dialog-all",
+    "shell-open",
+] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0.49"
+regex = "1.10.2"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
